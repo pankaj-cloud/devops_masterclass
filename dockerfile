@@ -1,12 +1,8 @@
-FROM ubuntu:latest
+FROM nginx:latest
 
 LABEL version="0.0.1"
 LABEL maintainer="pankaj_mb2000@yahoo.com"
 
-RUN apt-get update && apt-get upgrade -y
+WORKDIR /usr/share/nginx/html
 
-RUN apt-get install nginx -y
-
-EXPOSE 90
-
-CMD [ "nginx", "-g", "daemon off;"]
+COPY index.html index.html
